@@ -1,0 +1,42 @@
+.main-form input[type="text"],
+.main-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #F7F7F8;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.password-toggle {
+    position: relative;
+}
+
+
+.password-toggle .toggle-icon {
+    position: absolute;
+    top: 60%;
+    right: 5px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.reset-btn {
+    display: block;
+    text-align: right;
+}
+
+.rememberMe-checkbox {
+    margin: 5px 2px;
+    display: block;
+    text-align: left;
+}
+
+.message-tag {
+    margin-left: 2px;
+}
+
+.illustrate {
+    margin: 110px auto;
+    width: 575px;
+}
