@@ -1,7 +1,5 @@
 'use client';
 import Link from "next/link";
-import './page.css'
-import '../globals.css'
 import '../../../public/Illustration.svg'
 import { useState } from "react";
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -17,49 +15,52 @@ export default function Login() {
 
 
     return (
-        <div className="container">
-            <div className="left-panel">
-                <div className="logo-container">
-                    <img className="logo" src='/Logo.svg' />
-                    <h1 className="heading">Log In</h1>
-                </div>
-                <form className="main-form">
-                    <div>
-                        <label className="labels">Email Address</label>
-                        <input type="text"
-                            placeholder="Email Address"
-                        />
-                    </div>
-                    <div className="password-toggle">
-                        <label className="labels">Password</label>
-                        <input
-                            type={passwordVisible ? 'password' : 'text'}
-                            placeholder="password"
-                        />
-                        <span className="toggle-icon" onClick={togglePasswordVisibility}>
-                            {
-                                <FontAwesomeIcon
-                                    icon={passwordVisible ? "eye-slash" : "eye"}
-                                    onClick={() => setPasswordVisible(!passwordVisible)}
-                                />
-                            }
+        <div className="flex flex-col sm:flex-row">
+            <div className="flex-[1_1_0%] flex justify-center items-center bg-white w-full sm:w-1/2 py-16 px-8">
+                <div className="text-center">
+                    <img className="mx-auto mb-8 w-30" src="/Logo.svg" alt="Logo" />
+                    <h1 className="text-2xl font-bold mb-4">Log In</h1>
+                    <form className="w-full max-w-sm">
+                        <div className="mb-4">
+                            <label htmlFor="email" className="block text-left text-gray-700 font-semibold mb-2">Email Address</label>
+                            <input
+                                type="text"
+                                id="email"
+                                placeholder="Email Address"
+                                className="border border-gray-300 rounded-lg px-3 py-2 w-full focus:outline-none focus:border-blue-500"
+                            />
+                        </div>
+                        <div className="mb-4 relative">
+                            <label htmlFor="password" className="block text-left text-gray-700 font-semibold mb-2">Password</label>
+                            <input
+                                type={passwordVisible ? 'password' : 'text'}
+                                id="password"
+                                placeholder="Password"
+                                className="border border-gray-300 rounded-lg px-3 py-2 w-full focus:outline-none focus:border-blue-500"
+                            />
+                            <span className=" absolute top 1/2 right-3 transform -translate-y-[-40%] cursor-pointer" onClick={togglePasswordVisibility}>
+                                <FontAwesomeIcon icon={passwordVisible ? "eye-slash" : "eye"} />
+                            </span>
+                        </div>
+                        <div className="mb-4 flex items-center">
+                            <input type="checkbox" className="mr-2" />
+                            <span className="text-sm">Remember Me</span>
+                        </div>
+                        <button
+                            type="submit"
+                            className="bg-[#605BFF] hover:bg-blue-700 hover:bg-opacity-75 text-white font-semibold py-2 px-4 rounded-lg w-full"
+                        >
+                            Login
+                        </button>
+                        <Link href="/" className="block mb-1 text-blue-600 text-sm text-right mt-2">Reset Password?</Link>
+                        <span className="block mt-2 text-sm">
+                            Don't have an account yet? <Link href="/signup" className=" text-blue-500">New Account</Link>
                         </span>
-                    </div>
-                    <div className="rememberMe-checkbox">
-                        <input
-                            type="checkbox"
-                        // checked={checked}
-                        // onChange={handleChange}
-                        />
-                        <span className="message-tag">Remember Me</span>
-                    </div>
-                    <button className="page-btn">Login</button>
-                    <Link className="reset-btn link-btn" href={'/'}>Reset Password?</Link>
-                </form>
-                <span className="line-message">Don't have a account yet ?<Link className="link-btn" href={'/signup'}>New Account</Link></span>
+                    </form>
+                </div>
             </div>
-            <div className="right-panel">
-                <img className="illustrate" src='/illustration.svg' />
+            <div className="bg-gray-100 flex-[2_2_0%] w-full sm:w-1/2 py-16 px-8">
+                <img className="mx-auto" src="/illustration.svg" alt="Illustration" />
             </div>
         </div>
     )
